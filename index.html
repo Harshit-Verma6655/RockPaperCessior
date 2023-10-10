@@ -17,8 +17,15 @@
             width: 300px;
             display: block;
             cursor: pointer;
-            transition: all 1 ease-in;
             overflow: hidden;
+            animation: hello 2s linear 0s infinite ;
+        }
+        /* transform: rotate(180deg); */
+        @keyframes hello {
+          0% {  transform: scale(.3); }
+           
+          50% {  transform: rotate(180deg);}
+          100%{transform: scale(.3);  }
         }
         .outer button{
             overflow: hidden;
@@ -35,10 +42,7 @@
            flex-wrap: wrap;
            justify-content: center;
         }
-        .outer img:hover{
-            transform: scale(1.1);
-            transform: rotate(30deg);
-        }
+        
         .res>img{
             width: 300px;
             height: 200px;
