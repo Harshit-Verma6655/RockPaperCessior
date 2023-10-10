@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+        }
+        body{
+            background-color: rgb(3, 56, 36);
+        }
+         .botton {
+            height : 200px;
+            width: 300px;
+            display: block;
+            cursor: pointer;
+            transition: all 1 ease-in;
+            overflow: hidden;
+        }
+        .outer button{
+            overflow: hidden;
+            background-color: rgb(255, 255, 255);
+            height: 230px;
+            margin: 3%;
+            border-radius: 50%;
+        }
+        .outer{
+            width: 100%; 
+            display: flex; 
+            gap: 3%;
+           overflow: hidden;
+           flex-wrap: wrap;
+           justify-content: center;
+        }
+        .outer img:hover{
+            transform: scale(1.1);
+            transform: rotate(30deg);
+        }
+        .res>img{
+            width: 300px;
+            height: 200px;
+            margin-top: 5px;
+        }
+    </style>
+    <title>RockPaperCessior</title>
+</head>
+<body>
+    <div class="outer" >
+        <button ><img   class="botton" data-id="rock" src="https://illustoon.com/photo/11340.png"></button>
+        <button ><img class="botton" data-id="paper"   src="https://img.lovepik.com/free-png/20210928/lovepik-test-paper-png-image_401748501_wh1200.png"></button>
+        <button ><img  class="botton" data-id="cessior" src="https://www.freepnglogos.com/uploads/scissors-png/purple-clipart-scissors-pencil-and-color-purple-32.png"></button>
+        
+    </div>
+    <div class="up" style="text-align: center; color: bisque;">
+        <h2>Your Move:-</h2>
+        <h2>Computer Move:-</h2>
+    </div>
+
+    <div class="res" style="text-align: center;  border-radius: 5px;">
+       
+    </div>
+
+    <script>
+        function fun(){
+            let move=Math.random()*9;
+            if(move>=0 && move<3){
+
+                return "rock";
+            }
+            else if(move>=3 && move<6){
+                return "paper";
+            }
+            else if(move>=6 && move<9){
+                return "cessior";
+            }
+        }
+        
+            document.querySelectorAll(".botton").forEach((btn)=>{
+                btn.addEventListener("click", (e)=>{
+                    let playmove=e.target.dataset.id;
+                    let compMove=fun();
+                    console.log(compMove);
+                    let s="";
+                    if(playmove==compMove){
+                        document.querySelector(".up").innerHTML=` <h2>Your Move:-${playmove}</h2>
+        <h2>Computer Move:-${compMove}</h2>`;
+                         s=`<img src="https://thumbnail.imgbin.com/13/6/6/imgbin-barbados-lottery-drawing-result-congrats-ZAYWXQr8hQwAQQry53SHCJadm_t.jpg">`;
+                         
+                    }
+                    else if(playmove=="rock" && compMove=="cessior"){
+                        document.querySelector(".up").innerHTML=` <h2>Your Move:-${playmove}</h2>
+        <h2>Computer Move:-${compMove}</h2>`;
+                       s =`<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS41EV3ZIGZHkz5I6DOjtsLZIfzt2va91XTBQ&usqp=CAU">`;
+                       
+                    }
+                    else if(playmove=="rock" && compMove=="paper"){
+                        document.querySelector(".up").innerHTML=` <h2>Your Move:-${playmove}</h2>
+        <h2>Computer Move:-${compMove}</h2>`;
+                        s =`<img src="https://static.vecteezy.com/system/resources/previews/018/885/244/non_2x/black-star-badge-you-lose-game-award-icon-for-2d-png.png">`;
+                       
+
+                    }
+                    else if(playmove=="paper" && compMove=="rock"){
+                        document.querySelector(".up").innerHTML=` <h2>Your Move:-${playmove}</h2>
+        <h2>Computer Move:-${compMove}</h2>`;
+                       s =`<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS41EV3ZIGZHkz5I6DOjtsLZIfzt2va91XTBQ&usqp=CAU">`;
+                       
+                    }
+                    else if(playmove=="paper" && compMove=="cessior"){
+                        document.querySelector(".up").innerHTML=` <h2>Your Move:-${playmove}</h2>
+        <h2>Computer Move:-${compMove}</h2>`;
+                        s =`<img src="https://static.vecteezy.com/system/resources/previews/018/885/244/non_2x/black-star-badge-you-lose-game-award-icon-for-2d-png.png">`;
+                       
+
+                    }
+                    else if(playmove=="cessior" && compMove=="paper"){
+                        document.querySelector(".up").innerHTML=` <h2>Your Move:-${playmove}</h2>
+        <h2>Computer Move:-${compMove}</h2>`;
+                       s =`<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS41EV3ZIGZHkz5I6DOjtsLZIfzt2va91XTBQ&usqp=CAU">`;
+                       
+                    }
+                    else if(playmove=="cessior" && compMove=="rock"){
+                        document.querySelector(".up").innerHTML=` <h2>Your Move:-${playmove}</h2>
+        <h2>Computer Move:-${compMove}</h2>`;
+                        s =`<img src="https://static.vecteezy.com/system/resources/previews/018/885/244/non_2x/black-star-badge-you-lose-game-award-icon-for-2d-png.png">`;
+                       
+
+                    }
+                    document.querySelector(".res").innerHTML=s;
+                })
+            })
+
+
+
+    </script>
+</body>
+</html>
